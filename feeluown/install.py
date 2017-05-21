@@ -37,7 +37,7 @@ def install_sys_dep():
               'as your linux may not a debian distribution\n')
         packages = packages + _get_gstreamer()
         for i, p in enumerate(packages):
-            print(i, ': ', p)
+            print((i, ': ', p))
         print('\npackage name may be different among different systems')
 
 

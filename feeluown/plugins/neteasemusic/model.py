@@ -158,7 +158,7 @@ class NSongModel(SongModel):
     def search(cls, text):
         data = cls._api.search(text)
         songs = []
-        if data is not None and 'result' in data.keys():
+        if data is not None and 'result' in list(data.keys()):
             if data['result']['songCount']:
                 songs = data['result']['songs']
         return cls.batch_create(songs)
@@ -428,7 +428,7 @@ class NUserModel(object):
             if text == '':
                 return None
             data = json.loads(text)
-            username = next(iter(data.keys()))
+            username = next(iter(list(data.keys())))
             user_data = data[username]
             model = cls(username,
                         user_data['uid'],

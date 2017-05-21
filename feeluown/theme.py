@@ -82,7 +82,7 @@ class Theme(object):
             if not os.path.exists(config_file_path):
                 config_file_path = os.path.abspath(
                     USER_THEMES_DIR + '/' + config_file + '.colorscheme')
-                print('........ %s ............' % config_file_path)
+                print(('........ %s ............' % config_file_path))
             config = self._config.read(config_file_path)
             if config:
                 return True
@@ -190,7 +190,7 @@ class Theme(object):
 
     def random_color(self):
         '''return one of the eight*2 color'''
-        attributes = self.__class__.__dict__.keys()
+        attributes = list(self.__class__.__dict__.keys())
         color_attrs = []
         for attr in attributes:
             if attr.startswith('color') and not attr.startswith('color0'):

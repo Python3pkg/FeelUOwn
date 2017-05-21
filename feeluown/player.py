@@ -307,7 +307,7 @@ class Player(QMediaPlayer):
             self.signal_playlist_finished.emit()
             return None
         else:
-            return random.choice(range(len(self._music_list)))
+            return random.choice(list(range(len(self._music_list))))
 
     def get_previous_song_index(self):
         if len(self._music_list) is 0:
@@ -322,7 +322,7 @@ class Player(QMediaPlayer):
         elif self.playback_mode == PlaybackMode.sequential:
             return None
         else:
-            return random.choice(range(len(self._music_list)))
+            return random.choice(list(range(len(self._music_list))))
 
     def _set_playback_mode(self, mode):
         # item once: 0
